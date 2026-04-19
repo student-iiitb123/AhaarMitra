@@ -3,7 +3,7 @@ import connectDB from './config/db.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 connectDB();
 
 app.listen(port, () => {
