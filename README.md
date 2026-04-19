@@ -63,15 +63,19 @@ AhaarMitra solves this by creating a platform where users can discover and subsc
 
 ---
 
-### Project Structure
 
+
+## 📁 Project Structure
+
+```bash
 AhaarMitra/
 │
 ├── frontend/
 │   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── store/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── store/
+│   │   └── ...
 │
 ├── backend/
 │   ├── src/
@@ -79,8 +83,8 @@ AhaarMitra/
 │   │   ├── modules/
 │   │   ├── middlewares/
 │   │   ├── utils/
-│   │   └── routes/
-│   └── server.js
+│   │   ├── routes/
+│   │   └── server.js
 │
 └── README.md
 
@@ -94,3 +98,37 @@ Real-time data flow between frontend & backend
 Production-level API design
 
 
+🔐 Authentication Flow
+User/Vendor registers
+Password hashed using bcrypt
+JWT access token generated
+Protected routes secured via middleware
+Role-based access control implemented
+
+
+💳 Payment Flow
+User selects meal plan
+Backend creates Razorpay order
+User completes payment
+Backend verifies payment signature
+Subscription activated
+
+
+📦 Core Modules
+Auth Module
+User Module
+Vendor Module
+Kitchen Listing Module
+Meal Plan Module
+Subscription Module
+Payment Module
+Review & Rating Module
+
+
+Future Improvements
+🔄 Real-time order tracking
+📱 Mobile app (React Native)
+🤖 AI-based meal recommendations
+📊 Vendor analytics dashboard
+🔔 Push notifications
+⚡ Redis caching
