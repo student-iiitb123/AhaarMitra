@@ -1,4 +1,4 @@
-import ApiError from "../utils/ApiError";
+import ApiError from '../utils/ApiError';
 
 const errorMiddleware = (err, req, res, next) => {
   let error = err;
@@ -7,7 +7,7 @@ const errorMiddleware = (err, req, res, next) => {
   if (!(error instanceof ApiError)) {
     error = new ApiError(
       error.statusCode || 500,
-      error.message || 'Internal Server Error'
+      error.message || 'Internal Server Error',
     );
   }
 
