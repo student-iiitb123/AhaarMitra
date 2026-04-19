@@ -17,15 +17,23 @@ AhaarMitra solves this by creating a platform where users can discover and subsc
 
 ## Core Features
 
-- User authentication and secure login
-- Vendor registration and onboarding
-- Kitchen and business profile management
-- Meal plan creation and management
-- Subscription-based ordering system
-- Order placement and tracking
-- Payment integration
-- Review and rating system
-- Admin controls for monitoring platform activity
+ For Users (Tiffin Seekers)
+ Explore top-rated kitchens
+ Browse meal plans (Lunch / Dinner / Combo)
+ Customize subscription (Daily / Weekly / Monthly)
+ Manage multiple delivery addresses
+ Secure checkout & payments
+ Ratings & feedback system
+ Subscription dashboard
+
+### vendor Feature
+ For Vendors (Tiffin Providers)
+ Kitchen onboarding system
+ Upload kitchen & food images
+ Configure delivery timings
+ Manage meal plans & pricing
+ Set delivery zones
+ View customer insights
 
 ---
 
@@ -54,5 +62,35 @@ AhaarMitra solves this by creating a platform where users can discover and subsc
 - Prettier
 
 ---
+
+### Project Structure
+
+AhaarMitra/
+│
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── store/
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── modules/
+│   │   ├── middlewares/
+│   │   ├── utils/
+│   │   └── routes/
+│   └── server.js
+│
+└── README.md
+
+### System Design 
+
+Modular backend architecture
+Role-based authentication (User / Vendor / Admin)
+Scalable subscription model
+Secure payment integration
+Real-time data flow between frontend & backend
+Production-level API design
 
 
