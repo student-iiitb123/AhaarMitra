@@ -1,3 +1,5 @@
+```bash
+
 # AhaarMitra
 
 AhaarMitra is a full-stack tiffin and meal delivery platform designed to connect users with local food providers and home kitchens.  
