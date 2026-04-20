@@ -189,3 +189,64 @@ export const saveAddress = async (req,res) => {
     });
   }
 };
+
+
+
+export const completeRegistration = async (req, res) => {
+  try {
+    const user = req.user;
+
+    // 1. Step guard
+    if (user.registrationStep < 3) {
+      return res.status(400).json({
+        success: false,
+        message: "Please complete previous steps first",
+      });
+    }
+
+    // 2. Validate basic info
+    if (!user.name || !user.email || !user.phone || !user.password) {
+      return res.status(400).json({
+        success: false,
+        message: "Basic user information is incomplete",
+      });
+    }
+
+    // 3. Validate address
+    if (!user.addresses || user.addresses.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "At least one address is required",
+      });
+    }
+
+    // 4. Mark complete
+    user.registrationStep = 4;
+    user.registrationCompleted = true;
+
+    // 5. Save
+    await user.save();
+
+    // 6. Response
+    return res.status(200).json({
+      success: true,
+      message: "Registration completed successfully",
+      user: {
+        _id: user._id,
+        role: user.role,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        addresses: user.addresses,
+        registrationStep: user.registrationStep,
+        registrationCompleted: user.registrationCompleted,
+      },
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message || "Failed to complete registration",
+    });
+  }
+};
