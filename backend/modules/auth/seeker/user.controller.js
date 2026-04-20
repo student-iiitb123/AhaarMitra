@@ -132,3 +132,60 @@ export const registerUser = async (req, res) => {
     });
   }
 };
+
+
+export const saveAddress = async (req,res) => {
+    try{
+        const user = req.user;
+        if(user.registrationStep <2){
+            return res.status(400).json({
+                success: false,
+                 message: "Please complete basic information first",
+            })
+        }
+      
+        const {street, city,state,pincode,landmark,tag,isDefault} = req.body;
+         if (!street || !city || !state || !pincode) {
+      return res.status(400).json({
+        success: false,
+        message: "Street, city, state, and pincode are required",
+      });
+    }
+     if (isDefault) {
+      user.addresses.forEach((addr) => {
+        addr.isDefault = false;
+      });
+    }
+
+     user.addresses.push({
+      street,
+      city,
+      state,
+      pincode,
+      landmark: landmark || "",
+      tag: tag || "Home",
+      isDefault: isDefault || false,
+    });
+
+
+    user.registrationStep = Math.max(user.registrationStep, 3);
+     await user.save();
+    return res.status(200).json({
+      success: true,
+      message: "Address saved successfully",
+      user: {
+        _id: user._id,
+        addresses: user.addresses,
+        registrationStep: user.registrationStep,
+        registrationCompleted: user.registrationCompleted,
+      },
+    });
+    
+    }
+   catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message || "Failed to save address",
+    });
+  }
+};
