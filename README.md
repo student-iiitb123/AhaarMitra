@@ -67,7 +67,7 @@ AhaarMitra solves this by creating a platform where users can discover and subsc
 
 ## Project Structure
 
-```bash
+
 AhaarMitra/
 │
 ├── frontend/
@@ -88,3 +88,20 @@ AhaarMitra/
 │
 └── README.md
 
+
+### System Design
+
+Modular backend architecture
+Role-based authentication (User / Vendor / Admin) 
+Scalable subscription model
+Secure payment integration
+Real-time data flow between frontend & backend
+Production-level API design
+
+### Authentication Flow
+
+User/Vendor registers
+Password hashed using bcrypt
+JWT access token generated
+Protected routes secured via middleware
+Role-based access control implemented
