@@ -67,6 +67,7 @@ AhaarMitra solves this by creating a platform where users can discover and subsc
 
 ## Project Structure
 
+```bash
 
 AhaarMitra/
 │
