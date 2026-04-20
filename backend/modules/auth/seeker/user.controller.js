@@ -2,6 +2,7 @@ import generateToken from '../../../utils/generateToken.js';
 import User from './user.model.js';
 import bcrypt from 'bcryptjs';
 
+//select role
 export const selectRole = async (req, res) => {
   try {
     const { role } = req.body;
